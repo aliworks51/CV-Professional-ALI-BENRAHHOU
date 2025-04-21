@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Benrahhou - Expert en IA Émergent</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link style="border-radius: 50%;" rel="icon" href="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg" type="image/png">
     <style>
         :root {
-            --primary: #880d06;
-            --secondary: #aa00ff7b;
+            --primary: #1e0557cc;
+            --secondary: #ce0101a2;
             --dark: #020367;
             --light: #f8f9fa;
             --accent: #07b70a;
@@ -448,51 +449,47 @@
             <p>Je suis spécialisé en <span class="typed-text"></span></p>
             <a href="#contact" class="cta-button">Contactez-moi pour un stage</a>
         </div>
-        <nav style="text-align: center; margin-bottom: 1rem;"></nav>
-            <a href="#about" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background: var(--accent); border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" class="nav-link">PROPHILE</a>
-            <a href="#projects" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background: var(--accent); border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" class="nav-link">PROJETS</a>
-            <a href="#education" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background: var(--accent); border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" class="nav-link">FORMATION</a>
-            <a href="#languages" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background: var(--accent); border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" class="nav-link">LANGUES</a>
+        <nav style="text-align: center; margin-bottom: 1rem; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border-radius: 10px; padding: 1rem;"></nav>
+            <a href="#about" class="nav-link" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">PROPHILE</a>
+            <a href="#projects" class="nav-link" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">PROJETS</a>
+            <a href="#education" class="nav-link" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">FORMATION</a>
+            <a href="#languages" class="nav-link" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">LANGUES</a>
+            <a href="#contact" class="nav-link" style="margin: 0 1rem; color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">CONTACT</a>
         </nav>
-        </header>
-   
-
-    <script>
-        // Ajouter une classe active au bouton de navigation correspondant à la section visible
-        document.addEventListener('scroll', () => {
+        <script>
+            // Ajouter une classe active au menu en fonction de la section visible
+            document.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
-            const navButtons = document.querySelectorAll('.nav-link');
+            const navLinks = document.querySelectorAll('.nav-link');
             let currentSection = '';
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - window.innerHeight / 2;
                 if (window.scrollY >= sectionTop) {
-                    currentSection = section.getAttribute('id');
+                currentSection = section.getAttribute('id');
                 }
             });
 
-            navButtons.forEach(button => {
-                button.classList.remove('active');
-                if (button.getAttribute('href').includes(currentSection)) {
-                    button.classList.add('active');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                link.classList.add('active');
                 }
             });
-        });
+            });
 
-        // Style pour le bouton actif
-        const style = document.createElement('style');
-        style.textContent = `
+            // Style pour le lien actif
+            const style = document.createElement('style');
+            style.textContent = `
             .nav-link.active {
-                background: var(--accent);
+                background: #020367;
                 color: var(--dark);
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-                font-weight: bold;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
             }
-        `;
-        document.head.appendChild(style);
-    </script>
+            `;
+            document.head.appendChild(style);
+        </script>
     <div class="container">
         <section style="text-align: center; margin-top: 2rem;" class="section" id="about">
             <h2 style="color: #00fff9;"><i class="fas fa-user"></i> PROPHILE</h2><br><br>
@@ -774,5 +771,38 @@
             }, 8000);
         });
     </script>
+    <script>
+    function testEmail() {
+        console.log("Le lien mailto a été déclenché");
+        window.location.href = "mailto:ali.benrahhou.51@gmail.com";
+        
+        // Fallback après 1 seconde
+        setTimeout(() => {
+            if (!document.hidden) { // Si le client mail ne s'est pas ouvert
+                document.getElementById("emailFallback").style.display = "block";
+                // Copie automatique dans le presse-papiers
+                navigator.clipboard.writeText("ali.benrahhou.51@gmail.com");
+            }
+        }, 1000);
+        return true;
+    }
+
+    // Ajouter un fallback pour tous les liens mailto
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            testEmail();
+        });
+    });
+
+    // Afficher le message directement sous le bouton
+    document.querySelectorAll('.email-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const fallbackMessage = document.getElementById("emailFallback");
+            fallbackMessage.style.display = "block";
+            fallbackMessage.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>
 </body>
 </html>
