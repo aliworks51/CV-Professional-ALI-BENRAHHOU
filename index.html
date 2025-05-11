@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALI BENRAHHOU - Portfolio IA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
+
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 40px;
+    }
+
+    .social-icons a {
+      font-size: 2rem;
+      color: #a855f7; /* بنفسجي */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #7e22ce; /* بنفسجي غامق عند hover */
+      transform: scale(1.2); /* يكبر شوية عند hover */
+    }
         :root {
             --bg-gradient: linear-gradient(135deg, #0f2027, #154f46, #30166b);
             --primary: #8f00f5e4;
@@ -25,6 +46,8 @@
             color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         header {
             position: fixed;
@@ -421,11 +444,12 @@
         }
         
         footer {
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(0, 0, 0, 0.925);
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(100, 254, 218, 0.2);
+            padding: 1rem 0;
+            margin-top: 0rem;
+            border-top: 0.5rem ;
+           
         }
         
         .social-links {
@@ -578,7 +602,10 @@
             .section {
                 padding: 1.5rem;
             }
-            
+            .last-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
             .profile-img {
                 width: 200px;
                 height: 200px;
@@ -590,22 +617,81 @@
             }
         }
        
-        
+        /* Default nav style */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
     
     </style>
 </head>
 <body>
+
+    
+
     <div id="particles-js"></div>
+    
     <header id="header">
-        <div class="logo" style="text-align: left;">ALI BENRAHHOU</div>
-        <nav>
-            <a href="#home" class="nav-link active">Accueil</a>
+    <div class="logo" class="nav-link active" style="text-align: left;">ALI BENRAHHOU</div>
+    <nav class="navbar">
+    
+  <ul class="nav-links" id="navLinks">
+    <a href="#home" class="nav-link active">Accueil</a>
             <a href="#about" class="nav-link">Profil</a>
             <a href="#projects" class="nav-link">Projets</a>
             <a href="#education" class="nav-link">Formation</a>
             <a href="#languages" class="nav-link">Langues</a>
             <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    &#9776;
+  </div>
+</nav>
+        
+        <script>
+            const menuToggle = document.getElementById('menuToggle'); 
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        </script>
     </header>
     <section id="home" class="main">
         <div class="text-content">
@@ -628,150 +714,201 @@
             <img src="am.jpg" alt="Ali Benrahhou" class="profile-img">
         </div>
     </section>
-    <div class="container">
-        <section style="text-align: center; margin-top: 2rem;" class="section" id="about">
-            <h2 style="color: #00fff9;"><i class="fas fa-user"></i> PROPHILE</h2><br><br>
-            <p>Étudiant en deuxième année dans le domaine de l'intelligence artificielle, motivé, curieux et passionné par les technologies intelligentes et les données. Je possède des compétences de base en programmation et en apprentissage automatique. Je cherche à développer mes connaissances à travers des projets concrets et à contribuer à des environnements stimulants et innovants.</p>
-            <br><br><br><br>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 style="color: #1d6a0d;"><i class="fas fa-code"></i> Compétences Techniques</h3><hr><hr><br>
-                    <div class="skill-item">HTML5</div>
-                    <div class="skill-item">CSS</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">C/C++</div>
-                    <div class="skill-item">SQL</div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3  style="color: #1d6a0d;"><i class="fas fa-cogs"></i> Outils Maîtrisés</h3><hr><hr><br>
-                    <div class="skill-item">VS Code</div>
-                    <div class="skill-item">Git/GitHub</div>
-                    
-                </div>
-                
-                <div class="skill-category">
-                    <h3 style="color: #1d6a0d;"><i class="fas fa-brain"></i> Domaine IA</h3><hr><hr><br>
-                    
-                    <div class="skill-item">Traitement de données</div>
-                    <div class="skill-item">Algorithmes</div>
-                    
-                </div>
-            </div>
-        </section>
+    <div class="container" >
+       <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<section data-aos="fade-up" style="text-align: center; margin-top: 2rem;" class="section" id="about">
+  <h2 data-aos="zoom-in" style="color: #00fff9;">
+    <i class="fas fa-user"></i> PROPHILE
+  </h2><br><br>
+
+  <p data-aos="fade-up" data-aos-delay="100">
+    Étudiant en deuxième année dans le domaine de l'intelligence artificielle, motivé, curieux et passionné par les technologies intelligentes et les données.
+    Je possède des compétences de base en programmation et en apprentissage automatique.
+    Je cherche à développer mes connaissances à travers des projets concrets et à contribuer à des environnements stimulants et innovants.
+  </p>
+  <br><br><br><br>
+
+  <div class="skills-container">
+    <div class="skill-category" data-aos="fade-right">
+      <h3 style="color: #1d6a0d;"><i class="fas fa-code"></i> Compétences Techniques</h3>
+      <hr><hr><br>
+      <div class="skill-item">HTML5</div>
+      <div class="skill-item">CSS</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">C/C++</div>
+      <div class="skill-item">SQL</div>
+    </div>
+
+    <div class="skill-category" data-aos="fade-left">
+      <h3 style="color: #1d6a0d;"><i class="fas fa-cogs"></i> Outils Maîtrisés</h3>
+      <hr><hr><br>
+      <div class="skill-item">VS Code</div>
+      <div class="skill-item">Git/GitHub</div>
+    </div>
+
+    <div class="skill-category" data-aos="fade-right">
+      <h3 style="color: #1d6a0d;"><i class="fas fa-brain"></i> Domaine IA</h3>
+      <hr><hr><br>
+      <div class="skill-item">Traitement de données</div>
+      <div class="skill-item">Algorithmes</div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: false // باش تعاود الأنيميشن كل مرة كتسكرول
+  });
+</script>
+
         
-        <section style="text-align: center; margin-top: 2rem;" class="section" id="projects">
-            <h2 style="color: #00fff9;"><i class="fas fa-project-diagram"></i> PROJETS</h2>
-            
-            <div  class="project">
-                <h3 style="text-align: center; display: block; margin: 0 auto;color: #046947;"><i class="fas fa-laptop-code"></i> PROJET 1 – SITE WEB PORTFOLIO (HTML, CSS, JAVASCRIPT)</h3><br>
-                
-                    <ul style="display: inline-block; text-align: center; margin: 0; padding: 0; list-style-position: inside;">
-                        <li>Conception et développement de sous-systèmes <br> pour les satellites de télécommunication.</li>
-                        <li>Gestion de projets de recherche et développement, <br> de la phase de conception à la phase de réalisation, en collaboration avec des partenaires internationaux.</li>
-                        <li>Analyse des performances de vol et optimisation <br> des systèmes pour améliorer l'efficacité opérationnelle des satellites.</li>
-                    </ul>
-               
-            </div>
-            
-            <div class="project">
-                <h3 style="text-align: center; display: block; margin: 0 auto;color: #046947;"><i class="fas fa-database"></i> PROJET 2 – PREMIERS PAS AVEC C / C++ ET SQL</h3>
-                <ul style="display: inline-block; text-align: center;">
-                    <li>J'ai commencé à apprendre le langage C et C++, <br> et j'ai fait des petits exercices simples (affichage, conditions, boucles)</li>
-                    <li>J'ai réalisé de petits programmes comme <br> une calculatrice basique ou des menus interactifs en console</li>
-                    <li>J'ai découvert les bases de SQL, comme <br> les requêtes simples : SELECT, INSERT, UPDATE, DELETE</li>
-                    <li>J'ai pratiqué avec de petites bases de données <br> pour m'entraîner à ajouter et afficher des données</li>
-                </ul>
-            </div>
-            
-            <div class="project">
-                 <h3 style="text-align: center; display: block; margin: 0 auto;color: #046947;"><i class="fas fa-robot"></i> PROJET 3 – DÉTECTION D'OBJETS (PYTHON, OPENCV)</h3>
-                <ul style="display: inline-block; text-align: left;">
-                    <li>Développement d'un système de détection d'objets en temps réel</li>
-                    <li>Utilisation de bibliothèques Python comme OpenCV et TensorFlow</li>
-                    <li>Optimisation des performances pour différents environnements</li>
-                </ul>
-            </div>
-        </section>
+        <section data-aos="fade-up" style="text-align: center; margin-top: 2rem;" class="section" id="projects">
+  <h2 data-aos="zoom-in" style="color: #00fff9;">
+    <i class="fas fa-project-diagram"></i> PROJETS
+  </h2>
+
+  <div class="project" data-aos="fade-right">
+    <h3 style="text-align: center; display: block; margin: 0 auto; color: #046947;">
+      <i class="fas fa-laptop-code"></i> PROJET 1 – SITE WEB PORTFOLIO (HTML, CSS, JAVASCRIPT)
+    </h3><br>
+    <ul style="display: inline-block; text-align: center; margin: 0; padding: 0; list-style-position: inside;">
+      <li>Conception et développement de sous-systèmes <br> pour les satellites de télécommunication.</li>
+      <li>Gestion de projets de recherche et développement, <br> de la phase de conception à la phase de réalisation, en collaboration avec des partenaires internationaux.</li>
+      
+    </ul>
+  </div>
+
+  <div class="project" data-aos="fade-left">
+    <h3 style="text-align: center; display: block; margin: 0 auto; color: #046947;">
+      <i class="fas fa-database"></i> PROJET 2 – PREMIERS PAS AVEC C / C++ ET SQL
+    </h3>
+    <ul style="display: inline-block; text-align: center;">
+      <li>J'ai commencé à apprendre le langage C et C++, <br> et j'ai fait des petits exercices simples (affichage, conditions, boucles)</li>
+      <li>J'ai réalisé de petits programmes comme <br> une calculatrice basique ou des menus interactifs en console</li>
+      <li>J'ai découvert les bases de SQL, comme <br> les requêtes simples : SELECT, INSERT, UPDATE, DELETE</li>
+      <li>J'ai pratiqué avec de petites bases de données <br> pour m'entraîner à ajouter et afficher des données</li>
+    </ul>
+  </div>
+
+  
+</section>
+        <section data-aos="fade-up" style="text-align: center; margin-top: 2rem;" class="section" id="education">
+  <h2 data-aos="zoom-in" style="text-align: center; color: #00fff9; margin: 0 auto;">
+    <i class="fas fa-graduation-cap"></i> FORMATION
+  </h2>
+
+  <div class="project" data-aos="fade-right">
+    <h3 style="display: block; margin: 0 auto; color: #1d6a0d;">BACCALAURÉAT</h3><br>
+    <p>2023<br>École IDRISS 1 AGDEZ</p>
+  </div>
+
+  <div class="project" data-aos="fade-left">
+    <h3 style="display: block; margin: 0 auto; color: #1d6a0d;">BAC + 1</h3><br>
+    <p>Filière intelligence artificielle et ingénierie logiciel<br>Université Polydisciplinaire de Quarzazate</p>
+  </div>
+
+  <div class="project" data-aos="fade-right">
+    <h3 style="display: block; margin: 0 auto; color: #1d6a0d;">FORMATION EN COURS</h3><br>
+    <p>Intelligence artificielle et ingénierie logiciel</p>
+  </div>
+</section>
+
         
-        <section style="text-align: center; margin-top: 2rem;" class="section" id="education">
-            <h2 style="text-align: center; color: #00fff9; margin: 0 auto;">
-                <i class="fas fa-graduation-cap"></i> FORMATION
-            </h2>
-            
-            <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto; color: #1d6a0d;" style="text-align: center;"> BACCALAURÉAT</h3><br>
-            <p1 style="text-align: center;">2023<br>École IDRISS 1 AGDEZ</p1>
-            </div>
-            
-            <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto;color: #1d6a0d;"> BAC + 1</h3><br>
-            <p1 style="text-align: center;">Filière intelligence artificielle et ingénierie logiciel<br>Université Polydisciplinaire de Quarzazate</p1>
-            </div>
-            
-            <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto;color: #1d6a0d;" > FORMATION EN COURS</h3><br>
-            <p1 style="text-align: center;">intelligence artificielle et ingénierie logiciel</p1>
-            </div>
-        </section>
+        <section data-aos="fade-up" style="text-align: center; margin-top: 2rem;" class="section" id="languages">
+  <h2 data-aos="zoom-in" style="color: #00fff9;">
+    <i class="fas fa-language"></i> LANGUES
+  </h2>
+
+  <div class="languages" style="justify-content: center; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;">
+    <div class="language" data-aos="fade-right" style="text-align: center;">Amazighe : Langue maternelle</div>
+    <div class="language" data-aos="fade-left" style="text-align: center;">Arabe : Courant</div>
+    <div class="language" data-aos="fade-right" style="text-align: center;">Français : Intermédiaire (B1)</div>
+    <div class="language" data-aos="fade-left" style="text-align: center;">Anglais : Intermédiaire (B1)</div>
+  </div>
+</section>
+
         
-        <section style="text-align: center; margin-top: 2rem;" class="section" id="languages">
-            <h2 style="color: #00fff9;"><i class="fas fa-language"></i> LANGUES</h2>
-            
-            <div class="languages" style="justify-content: center; display: flex; flex-wrap: wrap;">
-            <div class="language" style="text-align: center;">Amazighe : Langue maternelle</div>
-            <div class="language" style="text-align: center;">Arabe : Courant</div>
-            <div class="language" style="text-align: center;">Français : Intermédiaire (B1)</div>
-            <div class="language" style="text-align: center;">Anglais : Intermédiaire (B1)</div>
-            </div>
-        </section>
-        
-        <section style="text-align: center; margin-top: 2rem;" class="section" id="contact">
-            <h2 style="color: #00fff9;"><i class="fas fa-envelope"></i> CONTACT</h2>
-            
-            <div class="contact-info" style="justify-content: center; display: flex; flex-wrap: wrap;">
-                <div class="contact-item" style="text-align: center;">
-                    <i class="fas fa-envelope"></i>
-                    <span>ali.benrahhou.51@gmail.com</span>
-                </div>
-                <div class="contact-item" style="text-align: center;">
-                    <i class="fas fa-phone"></i>
-                    <span>+212 651044123</span>
-                </div>
-                <div class="contact-item" style="text-align: center;">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Ouarzazate, Maroc</span>
-                </div>
-                <div class="contact-item" style="text-align: center;">
-                    <i class="fas fa-birthday-cake"></i>
-                    <span>26 juillet 2003</span>
-                </div>
-            </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-            <h3 style="margin-top: 2rem; text-align: center; font-weight: bold; color: #00fff9;">Disponible pour un stage en IA</h3><hr><hr><br>
-            <p style="text-align: center; margin-top: 2rem;">Je suis actuellement à la recherche d'un stage dans le domaine de l'intelligence artificielle où je pourrai mettre en pratique mes compétences et apprendre auprès de professionnels expérimentés.</p>
-            
-            <a style="text-align: center; margin-top: 2rem; display: inline-block;" href="mailto:ali.benrahhou.51@gmail.com?subject=Candidature%20pour%20un%20stage%20en%20IA  طلب%20تدريب&body=السلام%20عليكم%0D%0A%0D%0Aنحن%20مهتمون%20ب..." class="cta-button">
-                <i class="fas fa-paper-plane"></i> Envoyer une offre de stage
-            </a>
-        </section>
+        <section data-aos="fade-up" style="text-align: center; margin-top: 2rem; margin-bottom: 0; padding-top: 0;" class="section" id="contact">
+  <h2 data-aos="zoom-in" style="color: #00fff9;">
+    <i class="fas fa-envelope"></i> CONTACT
+  </h2>
+  
+  <div class="contact-info" style="justify-content: center; display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+    <div class="contact-item" data-aos="fade-right" style="text-align: center;">
+      <i class="fas fa-envelope"></i>
+      <span>ali.benrahhou.51@gmail.com</span>
+    </div>
+    <div class="contact-item" data-aos="fade-left" style="text-align: center;">
+      <i class="fas fa-phone"></i>
+      <span>+212 651044123</span>
+    </div>
+    <div class="contact-item" data-aos="fade-right" style="text-align: center;">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Ouarzazate, Maroc</span>
+    </div>
+    <div class="contact-item" data-aos="fade-left" style="text-align: center;">
+      <i class="fas fa-birthday-cake"></i>
+      <span>26 juillet 2003</span>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-top: 2rem;">
+    <h3 data-aos="fade-up" style="margin-top: 2rem; text-align: center; font-weight: bold; color: #00fff9;">
+      Disponible pour un stage en IA
+    </h3><hr><hr><br>
+    
+    <p data-aos="fade-up" style="text-align: center; margin-top: 2rem;">
+      Je suis actuellement à la recherche d'un stage dans le domaine de l'intelligence artificielle où je pourrai mettre en pratique mes compétences et apprendre auprès de professionnels expérimentés.
+    </p>
+    
+    <a data-aos="zoom-in" style="text-align: center; margin-top: 2rem; display: inline-block;" href="mailto:ali.benrahhou.51@gmail.com?subject=Candidature%20pour%20un%20stage%20en%20IA%20طلب%20تدريب&body=السلام%20عليكم%0D%0A%0D%0Aنحن%20مهتمون%20ب..." class="cta-button">
+      <i class="fas fa-paper-plane"></i> Envoyer une offre de stage
+    </a>
+  </div>
+</section>
+
     </div>
     
-    <footer>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/ali-benrahhou-158-31537/" class="social-link" target="_blank">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a href="https://github.com/aliworks5j" class="social-link" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="mailto:ali.benrahhou.51@gmail.com" class="social-link">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
-        <p>&copy; <span id="year"></span> Ali Benrahhou. Tous droits réservés.</p>
-    </footer>
+<footer data-aos="fade-up"  style="background-color: #000000; color: #fff; text-align: center; font-size: 0.9rem;">
+    <div class="social-links" style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1rem;">
+        <a href="https://www.linkedin.com/in/ali-benrahhou-158-31537/" aria-label="linkedin" class="social-link" target="_blank" style="color: #00fff9; font-size: 1rem; text-decoration: none;">
+            <i class="fab fa-linkedin-in" style="margin-right: 5px;"></i> 
+        </a>
+        <a href="https://github.com/aliworks5j " aria-label="GitHub" class="social-link" target="_blank" style="color: #00fff9; font-size: 1rem; text-decoration: none;">
+            <i class="fab fa-github" style="margin-right: 5px;"></i> 
+        </a>
+        <a href="mailto:ali.benrahhou.51@gmail.com" class="social-link" aria-label="Email" style="color: #00fff9; font-size: 1rem; text-decoration: none;">
+            <i class="fas fa-envelope" style="margin-right: 5px;"></i> 
+        </a>
+    </div>
+    
+    <p style="font-size: 0.8rem; margin-top: 1rem;">&copy; <span id="year"></span> Ali Benrahhou. Tous droits réservés.</p>
+</footer>
+
+<script>
+  // Automatically update the current year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Time for the animation to finish
+    once: true, // animation will happen only once when the element is in view
+  });
+</script>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -823,7 +960,13 @@
         `;
         document.head.appendChild(style);
     </script>
+<script>
+    AOS.init({
+      duration: 1000, // سرعة الأنيميشن (بالملي ثانية)
+      once: false // إذا تحب الأنيميشن تتكرر كل مرة تسكرول
 
+    });
+  </script>
     
     
 </body>
