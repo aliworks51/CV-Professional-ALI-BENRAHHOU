@@ -3,35 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Benrahhou - Expert en IA Émergent</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link style="border-radius: 50%;" rel="icon" href="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg" type="image/png">
+    <title>ALI BENRAHHOU - Portfolio IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e0557cc;
-            --secondary: #ce0101a2;
-            --dark: #020367;
-            --light: #f8f9fa;
-            --accent: #07b70a;
-            --text: #e6e6e6;
+            --bg-gradient: linear-gradient(135deg, #0f2027, #154f46, #30166b);
+            --primary: #8f00f5e4;
+            --secondary: #07b70a;
+            
+            --light: #fff;
+            --text: #f0f0f0;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
         body {
-            background-color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            background-color: black;
             color: var(--text);
             overflow-x: hidden;
-            position: relative;
+            min-height: 100vh;
         }
-        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: rgb(0, 0, 0);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            padding: 15px 10%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+        .main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10% 60px;
+        }
+        .text-content {
+            max-width: 600px;
+            animation: fadeIn 1s ease;
+        }
+        .text-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .text-content h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            color: var(--secondary);
+        }
+        .text-content p {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+        }
+        .btn-outline:hover {
+            background: rgba(0, 255, 255, 0.1);
+        }
+        .profile-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 30px var(--primary);
+            filter: grayscale(20%);
+            transition: all 0.5s;
+        }
+        .profile-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        #particles-js { 
+            position: fixed; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            z-index: -1; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        @media (max-width: 992px) {
+            .main {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+            .text-content {
+                max-width: 100%;
+                margin-bottom: 3rem;
+            }
+            .buttons {
+                justify-content: center;
+            }
+            header {
+                padding: 15px 5%;
+            }
+            nav {
+                gap: 1rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .text-content h1 {
+                font-size: 2.5rem;
+            }
+            .text-content h4  {
+                font-size: 1.5rem;
+            }
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+        }
+        .typed-text {
+            color: green;
+            font-weight: bold;
+        }
         /* Effet de particules pour le background IA */
         #particles-js {
             position: fixed;
@@ -43,13 +225,7 @@
             background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
         }
         
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 5.5rem 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(10, 227, 140, 0.2);
-        }
+       
         
         .container {
             width: 90%;
@@ -97,17 +273,7 @@
             text-align: center;
         }
         
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgb(54, 0, 250);
-            margin: 1rem auto;
-            display: block;
-            box-shadow: 0 0 25px rgba(151, 2, 188, 0.4);
-            transition: all 0.3s ease;
-        }
+        
         
         .profile-img:hover {
             transform: scale(1.05);
@@ -121,10 +287,7 @@
             color: #0befff6f;
         }
         
-        .typed-text {
-            color: var(--accent);
-            font-weight: 500;
-        }
+       
         
         .section {
             background: rgba(26, 26, 46, 0.6);
@@ -393,9 +556,7 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
+            
             
             h2 {
                 font-size: 1.8rem;
@@ -428,68 +589,45 @@
                 gap: 1rem;
             }
         }
-        p1 {
-            color: var(--text);
-            background: rgba(40, 21, 162, 0.311);
-            display: inline;
-        }
+       
         
+    
     </style>
 </head>
 <body>
-    <!-- Background particules IA -->
     <div id="particles-js"></div>
-    
-    <header>
-        <div class="container">
-            
-            <img src="am.jpg" alt="Ali Benrahhou" class="profile-img">
-            <h1 data-text="ALI BENRAHHOU" style="color:whitesmoke;">ALI BENRAHHOU</h1>
-            <p class="tagline">Étudiant en Intelligence Artificielle | Développeur Passionné</p>
-            <p>Je suis spécialisé en <span class="typed-text"></span></p>
-            <a href="#contact" class="cta-button">Contactez-moi pour un stage</a>
-        </div>
-         <nav style="text-align: center; margin-bottom: 1rem; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border-radius: 10px; padding: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
-            <a href="#about" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">PROPHILE</a>
-            <a href="#projects" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">PROJETS</a>
-            <a href="#education" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">FORMATION</a>
-            <a href="#languages" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">LANGUES</a>
-            <a href="#contact" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px;">CONTACT</a>
+    <header id="header">
+        <div class="logo" style="text-align: left;">ALI BENRAHHOU</div>
+        <nav>
+            <a href="#home" class="nav-link active">Accueil</a>
+            <a href="#about" class="nav-link">Profil</a>
+            <a href="#projects" class="nav-link">Projets</a>
+            <a href="#education" class="nav-link">Formation</a>
+            <a href="#languages" class="nav-link">Langues</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
-        <script>
-            // Ajouter une classe active au menu en fonction de la section visible
-            document.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - window.innerHeight / 2;
-                if (window.scrollY >= sectionTop) {
-                currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(currentSection)) {
-                link.classList.add('active');
-                }
-            });
-            });
-
-            // Style pour le lien actif
-            const style = document.createElement('style');
-            style.textContent = `
-            .nav-link.active {
-                background: #020367;
-                color: var(--dark);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-            }
-            `;
-            document.head.appendChild(style);
-        </script>
+    </header>
+    <section id="home" class="main">
+        <div class="text-content">
+            <h1 style="color: #f0f0f0;">Bonjour, je suis Ali</h1>
+            <h4 style="font-size: 25px;">Étudiant en Intelligence Artificielle | Développeur Passionné</h4>
+            <p>Je suis spécialisé en <span class="typed-text"></span></p>
+            <p>
+                Passionné par l'IA, le machine learning et le développement web. 
+                Je crée des solutions innovantes combinant intelligence artificielle 
+                et technologies web modernes.
+            </p>
+            <div class="buttons">
+                <a href="#contact"><button class="btn btn-primary">Contactez-moi</button></a>
+                <a href="CV Professionnel ALI BENRAHHOU.jpg" download="CV.png">
+                    <button class="btn btn-outline">Télécharger CV</button>
+                </a>
+            </div>
+        </div>
+        <div class="profile-container">
+            <img src="myg.jpg" alt="Ali Benrahhou" class="profile-img">
+        </div>
+    </section>
     <div class="container">
         <section style="text-align: center; margin-top: 2rem;" class="section" id="about">
             <h2 style="color: #00fff9;"><i class="fas fa-user"></i> PROPHILE</h2><br><br>
@@ -526,7 +664,7 @@
             <h2 style="color: #00fff9;"><i class="fas fa-project-diagram"></i> PROJETS</h2>
             
             <div  class="project">
-                <h3 style="text-align: center; display: block; margin: 0 auto;"><i class="fas fa-laptop-code"></i> PROJET 1 – SITE WEB PORTFOLIO (HTML, CSS, JAVASCRIPT)</h3><br>
+                <h3 style="text-align: center; display: block; margin: 0 auto;color: #046947;"><i class="fas fa-laptop-code"></i> PROJET 1 – SITE WEB PORTFOLIO (HTML, CSS, JAVASCRIPT)</h3><br>
                 
                     <ul style="display: inline-block; text-align: center; margin: 0; padding: 0; list-style-position: inside;">
                         <li>Conception et développement de sous-systèmes <br> pour les satellites de télécommunication.</li>
@@ -537,7 +675,7 @@
             </div>
             
             <div class="project">
-                <h3 style="text-align: center; display: block; margin: 0 auto;"><i class="fas fa-database"></i> PROJET 2 – PREMIERS PAS AVEC C / C++ ET SQL</h3>
+                <h3 style="text-align: center; display: block; margin: 0 auto;color: #046947;"><i class="fas fa-database"></i> PROJET 2 – PREMIERS PAS AVEC C / C++ ET SQL</h3>
                 <ul style="display: inline-block; text-align: center;">
                     <li>J'ai commencé à apprendre le langage C et C++, <br> et j'ai fait des petits exercices simples (affichage, conditions, boucles)</li>
                     <li>J'ai réalisé de petits programmes comme <br> une calculatrice basique ou des menus interactifs en console</li>
@@ -547,7 +685,7 @@
             </div>
             
             <div class="project">
-                <h3 style="text-align: center; display: block; margin: 0 auto;" style="font-weight: bold; color: to right, red, blue; " ><i class="fas fa-robot"></i> PROJET 3 – DÉTECTION D'OBJETS (PYTHON, OPENCV)</h3>
+                <h3 style="text-align: center; display: block; margin: 0 auto;" style="font-weight: bold; color: to right, red, blue;color: #046947; " ><i class="fas fa-robot"></i> PROJET 3 – DÉTECTION D'OBJETS (PYTHON, OPENCV)</h3>
                 <ul style="display: inline-block; text-align: left;">
                     <li>Développement d'un système de détection d'objets en temps réel</li>
                     <li>Utilisation de bibliothèques Python comme OpenCV et TensorFlow</li>
@@ -562,17 +700,17 @@
             </h2>
             
             <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto;" style="text-align: center;"> BACCALAURÉAT</h3><br>
+            <h3 style="text-align: center; display: block; margin: 0 auto; color: #1d6a0d;" style="text-align: center;"> BACCALAURÉAT</h3><br>
             <p1 style="text-align: center;">2023<br>École IDRISS 1 AGDEZ</p1>
             </div>
             
             <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto;" style="text-align: center;"> BAC + 1</h3><br>
+            <h3 style="text-align: center; display: block; margin: 0 auto;color: #1d6a0d;"> BAC + 1</h3><br>
             <p1 style="text-align: center;">Filière intelligence artificielle et ingénierie logiciel<br>Université Polydisciplinaire de Quarzazate</p1>
             </div>
             
             <div class="project" style="text-align: center;">
-            <h3 style="text-align: center; display: block; margin: 0 auto;" style="text-align: center;"> FORMATION EN COURS</h3><br>
+            <h3 style="text-align: center; display: block; margin: 0 auto;color: #1d6a0d;" > FORMATION EN COURS</h3><br>
             <p1 style="text-align: center;">intelligence artificielle et ingénierie logiciel</p1>
             </div>
         </section>
@@ -611,25 +749,21 @@
             </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-            <h3 style="margin-top: 2rem; text-align: center; font-weight: bold;">Disponible pour un stage en IA</h3><hr><hr><br>
+            <h3 style="margin-top: 2rem; text-align: center; font-weight: bold; color: #00fff9;">Disponible pour un stage en IA</h3><hr><hr><br>
             <p style="text-align: center; margin-top: 2rem;">Je suis actuellement à la recherche d'un stage dans le domaine de l'intelligence artificielle où je pourrai mettre en pratique mes compétences et apprendre auprès de professionnels expérimentés.</p>
             
-          <a style="text-align: center; margin-top: 2rem; display: inline-block;" 
-   href="mailto:ali.benrahhou.51@gmail.com?subject=Demande%20de%20stage%20en%20intelligence%20artificielle&body=Bonjour%2C%0D%0A%0D%0ANous%20sommes%20int%C3%A9ress%C3%A9s%20par%20votre%20profil%20et%20souhaitons%20vous%20proposer%20une%20opportunit%C3%A9%20de%20stage%20dans%20le%20domaine%20de%20l%27IA.%0D%0A%0D%0AMerci%20de%20nous%20contacter%20pour%20plus%20d%27informations.%0D%0A%0D%0ACordialement%2C" 
-   class="cta-button">
-   <i class="fas fa-paper-plane"></i> Envoyer une offre de stage
-</a>
-
-
+            <a style="text-align: center; margin-top: 2rem; display: inline-block;" href="mailto:ali.benrahhou.51@gmail.com?subject=Candidature%20pour%20un%20stage%20en%20IA  طلب%20تدريب&body=السلام%20عليكم%0D%0A%0D%0Aنحن%20مهتمون%20ب..." class="cta-button">
+                <i class="fas fa-paper-plane"></i> Envoyer une offre de stage
+            </a>
         </section>
     </div>
     
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/ali-benrahhou-2b8316313/" class="social-link" target="_blank">
+            <a href="https://www.linkedin.com/in/ali-benrahhou-158-31537/" class="social-link" target="_blank">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
-            <a href="https://github.com/aliworks51" class="social-link" target="_blank">
+            <a href="https://github.com/aliworks5j" class="social-link" target="_blank">
                 <i class="fab fa-github"></i> GitHub
             </a>
             <a href="mailto:ali.benrahhou.51@gmail.com" class="social-link">
@@ -638,175 +772,59 @@
         </div>
         <p>&copy; <span id="year"></span> Ali Benrahhou. Tous droits réservés.</p>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // Initialisation des particules pour le background IA
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#64feda"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#4e54c8",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-
-        // Animation de texte typé
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.typed-text', {
-                strings: ["Machine Learning", "Traitement de données", "Développement Web", "Algorithmes d'IA"],
+                strings: ["Traitement de données", "Développement Web", "Algorithmes d'IA"],
                 typeSpeed: 50,
                 backSpeed: 30,
                 loop: true,
                 showCursor: true,
                 cursorChar: '|'
             });
-            
-            
-            
-            // Mise à jour de l'année
-            document.getElementById('year').textContent = new Date().getFullYear();
-            
-            // Effet de glitch aléatoire
-            setInterval(() => {
-                const glitch = document.querySelector('.glitch');
-                glitch.style.animation = 'none';
-                void glitch.offsetWidth; // Trigger reflow
-                glitch.style.animation = 'glitch-anim 0.5s linear';
-            }, 8000);
         });
+
     </script>
+
     <script>
-    function testEmail() {
-        console.log("Le lien mailto a été déclenché");
-        window.location.href = "mailto:ali.benrahhou.51@gmail.com";
-        
-        // Fallback après 1 seconde
-        setTimeout(() => {
-            if (!document.hidden) { // Si le client mail ne s'est pas ouvert
-                document.getElementById("emailFallback").style.display = "block";
-                // Copie automatique dans le presse-papiers
-                navigator.clipboard.writeText("ali.benrahhou.51@gmail.com");
+        // Ajouter une classe active au bouton de navigation correspondant à la section visible
+        document.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navButtons = document.querySelectorAll('.nav-link');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - window.innerHeight / 2;
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('href').includes(currentSection)) {
+                    button.classList.add('active');
+                }
+            });
+        });
+
+        // Style pour le bouton actif
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-link.active {
+                background: var(--accent);
+                color: var(--dark);
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-weight: bold;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             }
-        }, 1000);
-        return true;
-    }
+        `;
+        document.head.appendChild(style);
+    </script>
 
-    // Ajouter un fallback pour tous les liens mailto
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            testEmail();
-        });
-    });
-
-    // Afficher le message directement sous le bouton
-    document.querySelectorAll('.email-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const fallbackMessage = document.getElementById("emailFallback");
-            fallbackMessage.style.display = "block";
-            fallbackMessage.scrollIntoView({ behavior: "smooth" });
-        });
-    });
-</script>
+    
+    
 </body>
 </html>
