@@ -219,28 +219,13 @@
             }
         }
        
-            
+          
+        .typed-text {
+            color: green;
+            font-weight: bold;
+        }
         
-    @media (max-width: 576px) {
-        body {
-            text-align: center;
-        }
-        .text-content {
-            text-align: center;
-            margin: 0 auto;
-        }
-        .buttons {
-            justify-content: center;
-            flex-direction: column;
-        }
-        .profile-container {
-            margin: 0 auto;
-        }
-        .skills-container, .contact-info, .languages {
-            justify-content: center;
-        }
-    }
-
+    
 
         /* Effet de particules pour le background IA */
         #particles-js {
@@ -645,14 +630,15 @@
 /* Responsive */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* menu makaybanch par défaut */
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 20px;
+    right: 10px;
     background-color: #111;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
+    z-index: 100;
   }
 
   .nav-links.active {
