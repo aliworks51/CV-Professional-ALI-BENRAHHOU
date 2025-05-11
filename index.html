@@ -218,25 +218,30 @@
                 gap: 1rem;
             }
         }
-        @media (max-width: 576px) {
-            .text-content h1 {
-                font-size: 2.5rem;
-            }
-            .text-content h4  {
-                font-size: 1.5rem;
-            }
-            .profile-container {
-                width: 250px;
-                height: 250px;
-            }
-            .buttons {
-                flex-direction: column;
-            }
+       
+            
+        
+    @media (max-width: 576px) {
+        body {
+            text-align: center;
         }
-        .typed-text {
-            color: green;
-            font-weight: bold;
+        .text-content {
+            text-align: center;
+            margin: 0 auto;
         }
+        .buttons {
+            justify-content: center;
+            flex-direction: column;
+        }
+        .profile-container {
+            margin: 0 auto;
+        }
+        .skills-container, .contact-info, .languages {
+            justify-content: center;
+        }
+    }
+
+
         /* Effet de particules pour le background IA */
         #particles-js {
             position: fixed;
