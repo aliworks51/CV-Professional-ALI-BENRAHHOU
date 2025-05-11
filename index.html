@@ -648,6 +648,29 @@
   .menu-toggle {
     display: block;
   }
+   section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+   .skills-container,
+  .project,
+  .contact-info,
+  .language {
+    width: 100%;
+    justify-content: center;
+  }
+
+  h2, h3, p, li, span {
+    text-align: center;
+  }
+
+  
+
+  
 }
 
     
@@ -894,7 +917,7 @@
 <script>
   AOS.init({
     duration: 1000, // Time for the animation to finish
-    once: true, // animation will happen only once when the element is in view
+    once: false, // animation will happen only once when the element is in view
   });
 </script>
 
